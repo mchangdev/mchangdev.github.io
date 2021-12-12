@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Form</title>
+    <link rel="stylesheet" id="templatecss" type="text/css" href="css/basic-grey.css">
+    <style>
+        .buttonArea{
+                width: 360px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+        <form action="" method="post" class="basic-grey">
+                <h1>Contact Form<span>Please fill in your information.</span></h1>
+        
+                <label>
+                        <span>Category :</span>
+        
+                        <select id="template" name="themplate" onchange="changeStyle();">
+        
+                                <option value="Home">Home</option>
+        
+                                <option value="Recent">Recent</option>
+        
+                                <option value="Popular Articles">Popular Articles</option>
+        
+                                <option value="HTML/CSS">HTML/CSS</option>
+        
+                                <option value="JavaScript">JavaScript</option>
+        
+                                <option value="Cloud Server">Cloud Server</option>
+        
+                                <option value="Other">Other</option>
+        
+                        </select>
+                </label>
+        
+                <label>
+                        <span>Your Name :</span>
+        
+                        <input id="name" type="text" name="name" placeholder="Your Full Name" />
+        
+                </label>
+        
+                <label>
+                        <span>Your Email :</span>
+        
+                        <input id="email" type="email" name="email" placeholder="Valid Email Address" />
+        
+                </label>
+        
+                <label>
+                        <span>Message :</span>
+        
+                        <textarea id="message" name="message" placeholder="Your Message to Us"></textarea>
+        
+                </label>
+        
+                <label>
+                        <span>&nbsp;</span>
+                        <div class="buttonArea">
+                                <input type="button" class="button" value="Send" id="send" />
+                                <input type="button" class="button" value="Back"  id="button"/>
+                                <script>
+                                        button.onclick = function() {
+                                                window.history.back(-1);
+                                        }
+                                        send.onclick = function(){
+                                                alert('The submission is successful.')
+                                        }
+                                </script>
+                        </div>
+                        
+                </label>
+        </form> 
+</div>
+
+</body>
+</html>

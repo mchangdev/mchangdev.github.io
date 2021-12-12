@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title Goes Here</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="./data/data.js"></script>
+<style>
+    .container{
+        font-family: 'Raleway', sans-serif;
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    a{
+        color: #435a6b;
+    }
+
+    header {
+        height: 220px;
+        width:100%;
+        background-color: #2f343c;
+        background-image: url(headerPic.jpeg);
+        background-size:800px 320px;
+        background-repeat: no-repeat;
+        /* background-attachment:fixed; */
+        background-position:center right;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    h1 {
+        margin-top: 75px;
+        color: white;
+        text-align:left;
+        font-size: 300%; 
+        padding-bottom: 1em;
+        position:relative;
+        left:20px
+    }
+    nav {
+        font-size: 10px;
+        width:100%;
+        height: 50px;
+        background-color: #2f343c;
+    }
+
+    nav a {
+        position: relative;
+        display: inline-block;
+        margin: 15px 25px;
+        outline: none;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 400;
+        text-shadow: 0 0 1px rgba(255,255,255,0.3);
+        font-size: 1.35em;
+}
+
+    nav a:hover,
+    nav a:focus {
+        outline: none;
+    }
+
+    /* Effect 1: Brackets */
+    .cl-effect-1 a::before,
+    .cl-effect-1 a::after {
+        display: inline-block;
+        opacity: 0;
+        -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+        -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+        transition: transform 0.3s, opacity 0.2s;
+    }
+
+    .cl-effect-1 a::before {
+        margin-right: 10px;
+        content: '[';
+        -webkit-transform: translateX(20px);
+        -moz-transform: translateX(20px);
+        transform: translateX(20px);
+    }
+
+    .cl-effect-1 a::after {
+        margin-left: 10px;
+        content: ']';
+        -webkit-transform: translateX(-20px);
+        -moz-transform: translateX(-20px);
+        transform: translateX(-20px);
+    }
+
+    .cl-effect-1 a:hover::before,
+    .cl-effect-1 a:hover::after,
+    .cl-effect-1 a:focus::before,
+    .cl-effect-1 a:focus::after {
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        transform: translateX(0px);
+    }
+
+    main   {
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .left{
+        color: #435a6b;
+        width: 75%;
+        background-color:white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .item{
+        cursor:pointer;
+        width: 90%;
+        padding: 20px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .item:hover{
+        background-color: #466db017;
+        border-radius: 6px;
+    }
+    .title{
+        height: 30px;
+        font-size: 30px;
+        font-weight: 200px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .intro{
+        display: flex;
+        flex-direction: row;
+    }
+    .author,.date,.category,.abstract,.source{
+        margin-top: 20px;
+        font-size: 13px;
+        color: #b7b7b7;
+    }
+    .author,.date,.source{
+        margin-left: 30px;
+    }
+    .right{
+        width: 25%;
+        height: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .side{
+        margin-top: 50px;
+        width: 80%;
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between;
+        align-items: center; */
+    }
+    .sideDetail{
+        height: 200px;
+        border: 1px solid;
+        border-color: #b7b7b7;
+        border-bottom-right-radius:6px;
+        border-bottom-left-radius:6px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .sideDetail a:hover{
+        padding-right: 20px;
+        padding-left: 20px;
+        border-radius: 3px;
+        background-color: #466db0;
+        color: white;
+        font-weight: 100px;
+    }
+    .note{
+        margin-top: 10px;
+        margin-right: -17px;
+        width: 90%;
+        font-size: 13px;
+        color: #b7b7b7;
+    }
+    .searchBox{
+        width: 90%;
+        height: 32px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 10px;
+    }
+    .button{
+        width: 40px;
+        height: 40px;
+        background: #da4615;
+        color: white;
+        border-radius: 50%;
+        border: none;
+        margin-top: -3px;
+        cursor:pointer;
+    }
+    .button:hover {
+        background: #CF7A7A
+    }
+    .sideTitle{
+        color: white;
+        width: 100%;
+        height: 45px;
+        border-top-right-radius:6px;
+        border-top-left-radius:6px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .qualitySite{
+        margin-top: 15px;
+    }
+    footer {
+        font-size: 13px;
+        font-weight: 100px;
+        width:100%;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        clear: right;
+        background-color: #2f343c;
+    }
+   
+</style>
+
+</head>
+<body class="container">
+    <header>
+        <h1>Ming's Code Repository</h1>
+    </header>
+    <nav class="cl-effect-1">
+        <a href="index.html?param=home">Home</a>
+        <a href="index.html?param=popular">Popular</a>
+        <a href="index.html?param=html">HTML</a>
+        <a href="index.html?param=javascript">JavaScript</a>
+        <a href="index.html?param=cloud">Cloud</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <main>
+        <div  id="itemID" class="left"> 
+        </div>
+        <div class="right">
+            <div class="side">
+                <div class="sideTitle" style="background-color: #da4615;"><text>Search</text></div>
+                <div class="sideDetail">
+                    <div class="searchBox">
+                        <input type="text" id="text" placeholder="Please enter a keyword"/>
+                        <input  class="button" type="button" id="button" value="Go"/>
+                        <script>
+                            
+                            button.onclick = function() {
+                                var itemSearchItem = [];
+                                var keyText = document.getElementById("text");
+                                var button = document.getElementById("button");
+                                for(var i = 0; i< local_database.length; i++){
+                                    if(local_database[i].title.indexOf(keyText.value) != -1){
+                                        var values = local_database[i].title.split(keyText.value);
+                                        var highliteTitle= values.join('<span style="background: #02a2ddc7;">' + keyText.value + '</span>');
+                                        console.log(highliteTitle)
+                                        itemSearchItem.push([
+                                            highliteTitle,
+                                            local_database[i].content.substring(0,100)+'...',
+                                            'Category: '+local_database[i].category,
+                                            'Date: '+local_database[i].date,
+                                            'Author: '+local_database[i].author,
+                                            local_database[i].id,
+                                            'Source: '+local_database[i].source
+                                        ])
+                                    }
+                                }
+
+                                if(itemSearchItem.length >0){
+                                    var itemSearchStr = '';
+                                    itemSearchItem.forEach(e => {
+                                        // itemStr += `<div>${e}</div>`;
+                                        itemSearchStr += `
+                                        <div onclick="gotoDetail(${e[5]})" class="item">           
+                                                <div class="title">${e[0]}</div>
+                                                <div class="abstract">${e[1]}</div>
+                                                <div class="intro">
+                                                    <div class="category">${e[2]}</div>
+                                                    <div class="date">${e[3]}</div>
+                                                    <div class="author">${e[4]}</div>
+                                                    <div class="source">${e[6]}</div>
+                                                </div>    
+                                        </div>
+                                        <HR style="border:1 dashed #987cb9" width="90%" color=#987cb9 SIZE=1>
+                                        `;
+                                    })
+
+                                    document.getElementById("itemID").innerHTML = itemSearchStr;
+                                }else{
+                                    document.getElementById("itemID").innerHTML = 'Please type the keyword again.';
+                                    alert(keyText.value+' do not exist!');
+                                }
+                                
+                                console.log(itemSearchItem)
+                                
+                            };
+                        </script>
+                    </div>
+                    <div class="note">Note: Please enter the keywords contained in the title and be case sensitive.</div>
+                </div>
+                
+            </div>
+            <div class="side">
+                <div class="sideTitle" style="background-color: #466db0;"><text>Recommendation</text></div>
+                <div class="sideDetail">
+                    <a href="https://www.google.com/?hl=zh_CN" class="qualitySite">Google</a>
+                    <a href="https://www.w3.org/" class="qualitySite">W3C</a>
+                    <a href="https://github.com/" class="qualitySite">GitHub</a>
+                    <a href="https://www.csdn.net/" class="qualitySite">CSDN</a>
+                    <a href="https://developers.weixin.qq.com/miniprogram/en/dev/api/" class="qualitySite">WeChat API</a>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    <footer>
+        Copyright &copy; 2021
+    </footer>
+</body>
+</html>
+
+<script>
+    var param = window.location.href
+    var paramValue
+    var itemArray = []
+    if(param.indexOf("?") != -1){
+        paramValue = window.location.href.split("?")[1].split("=")[1];
+    }else{
+        paramValue = 'home'
+    }
+    
+    for(var i = 0; i< local_database.length; i++){
+        if(local_database[i].category == paramValue){
+            itemArray.push([
+                local_database[i].title,
+                local_database[i].content.substring(0,100)+'...',
+                'Category: '+local_database[i].category,
+                'Date: '+local_database[i].date,
+                'Author: '+local_database[i].author,
+                local_database[i].id,
+                'Source: '+local_database[i].source
+            ])
+        }
+    }
+
+    console.log(itemArray)
+    //Custom string used to concatenate labels
+    var itemStr = "";
+
+    /****forEach****/
+    itemArray.forEach(e => {
+        // itemStr += `<div>${e}</div>`;
+        itemStr += `
+        <div onclick="gotoDetail(${e[5]})" class="item">           
+                <div class="title">${e[0]}</div>
+                <div class="abstract">${e[1]}</div>
+                <div class="intro">
+                    <div class="category">${e[2]}</div>
+                    <div class="date">${e[3]}</div>
+                    <div class="author">${e[4]}</div>
+                    <div class="source">${e[6]}</div>
+                </div>    
+        </div>
+        <HR style="border:1 dashed #987cb9" width="90%" color=#987cb9 SIZE=1>
+        `;
+    })
+    // console.log(loveStr)
+    
+    //After concatenating the string array, render it into the page with innerHTML
+    document.getElementById("itemID").innerHTML = itemStr;
+
+    function gotoDetail(id){
+        window.location.href = "./detail.html?id="+id;
+    }
+</script>
+
